@@ -2,6 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use App\http\Controllers\PageController;
+use App\http\Controllers\HomeController;
+use App\http\Controllers\AboutController;
+use App\http\Controllers\ArticleController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,9 +35,9 @@ use App\http\Controllers\PageController;
 
 // PRAKTIKUM 2
 
-Route::get('/', [PageController::class, 'index']);
-Route::get('/about', [PageController::class, 'about']);
-Route::get('/articles/{id}', [PageController::class, 'articles']);
+Route::get('/', [HomeController::class, 'index']);
+Route::get('/about', [AboutController::class, 'about']);
+Route::get('/articles/{id}', [ArticleController::class, 'articles']);
 
 // PRAKTIKUM 2
 
