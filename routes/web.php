@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\http\Controllers\PageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,19 +14,29 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// PRAKTIKUM 1
 // Route::get('/', function () {
-//     return view('welcome');
+//     return 'Selamat Datang';
 // });
 
-Route::get('/', function () {
-    return 'Selamat Datang';
-});
+// Route::get('/about', function () {
+//     return '1941720040 | Naufal Yukafi Ridlo';
+// });
 
-Route::get('/about', function () {
-    return '1941720040 | Naufal Yukafi Ridlo';
-});
+// Route::get('/articles/{id}', function ($id) {
+//     return 'Halaman Artikel dengan ID ' . $id;
+// });
+// PRAKTIKUM 1
 
-Route::get('/articles/{id}', function ($id) {
-    return 'Halaman Artikel dengan ID ' . $id;
-});
+// =========================================================
+
+// PRAKTIKUM 2
+
+Route::get('/', [PageController::class, 'index']);
+Route::get('/about', [PageController::class, 'about']);
+Route::get('/articles/{id}', [PageController::class, 'articles']);
+
+// PRAKTIKUM 2
+
+
 
