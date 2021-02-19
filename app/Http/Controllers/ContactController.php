@@ -13,7 +13,7 @@ class ContactController extends Controller
      */
     public function index()
     {
-        return redirect('https://www.educastudio.com/contact-us');
+        return view('input');
     }
 
     /**
@@ -23,7 +23,7 @@ class ContactController extends Controller
      */
     public function create()
     {
-        return view('contact-us');
+        //
     }
 
     /**
@@ -34,13 +34,14 @@ class ContactController extends Controller
      */
     public function store(Request $request)
     {
-        $result = [
-            'name' => $request['name'],
-            'email' => $request['email'],
-            'message' => $request['message']
-        ];
 
-        return view('comment', ['comment' => (object)$result]);
+        $this->validate($request,[
+            'email' => 'required',
+            'name' => 'required|min:5|max:20',
+            'message' => 'required'
+        ]);
+
+        return view('admin',['data' => $request]);
     }
 
     /**
